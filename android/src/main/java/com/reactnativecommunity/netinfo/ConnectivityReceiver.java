@@ -206,44 +206,44 @@ abstract class ConnectivityReceiver {
                         }
 
                         // Get the IP address
-                        try {
-                            byte[] ipAddressByteArray =
-                                    BigInteger.valueOf(wifiInfo.getIpAddress()).toByteArray();
-                            NetInfoUtils.reverseByteArray(ipAddressByteArray);
-                            InetAddress inetAddress = InetAddress.getByAddress(ipAddressByteArray);
-                            String ipAddress = inetAddress.getHostAddress();
-                            details.putString("ipAddress", ipAddress);
-                        } catch (Exception e) {
-                            // Ignore errors
-                        }
+                        //try {
+                        //    byte[] ipAddressByteArray =
+                        //            BigInteger.valueOf(wifiInfo.getIpAddress()).toByteArray();
+                        //    NetInfoUtils.reverseByteArray(ipAddressByteArray);
+                        //    InetAddress inetAddress = InetAddress.getByAddress(ipAddressByteArray);
+                        //    String ipAddress = inetAddress.getHostAddress();
+                        //    details.putString("ipAddress", ipAddress);
+                        //} catch (Exception e) {
+                        //    // Ignore errors
+                        //}
 
-                        // Get the subnet mask
-                        try {
-                            byte[] ipAddressByteArray =
-                                    BigInteger.valueOf(wifiInfo.getIpAddress()).toByteArray();
-                            NetInfoUtils.reverseByteArray(ipAddressByteArray);
-                            InetAddress inetAddress = InetAddress.getByAddress(ipAddressByteArray);
-                            NetworkInterface netAddress =
-                                    NetworkInterface.getByInetAddress(inetAddress);
-                            int mask =
-                                    0xffffffff
-                                            << (32
-                                            - netAddress
-                                            .getInterfaceAddresses()
-                                            .get(1)
-                                            .getNetworkPrefixLength());
-                            String subnet =
-                                    String.format(
-                                            Locale.US,
-                                            "%d.%d.%d.%d",
-                                            (mask >> 24 & 0xff),
-                                            (mask >> 16 & 0xff),
-                                            (mask >> 8 & 0xff),
-                                            (mask & 0xff));
-                            details.putString("subnet", subnet);
-                        } catch (Exception e) {
-                            // Ignore errors
-                        }
+                        //// Get the subnet mask
+                        //try {
+                        //    byte[] ipAddressByteArray =
+                        //            BigInteger.valueOf(wifiInfo.getIpAddress()).toByteArray();
+                        //    NetInfoUtils.reverseByteArray(ipAddressByteArray);
+                        //    InetAddress inetAddress = InetAddress.getByAddress(ipAddressByteArray);
+                        //    NetworkInterface netAddress =
+                        //            NetworkInterface.getByInetAddress(inetAddress);
+                        //    int mask =
+                        //            0xffffffff
+                        //                    << (32
+                        //                    - netAddress
+                        //                    .getInterfaceAddresses()
+                        //                    .get(1)
+                        //                    .getNetworkPrefixLength());
+                        //    String subnet =
+                        //            String.format(
+                        //                    Locale.US,
+                        //                    "%d.%d.%d.%d",
+                        //                    (mask >> 24 & 0xff),
+                        //                    (mask >> 16 & 0xff),
+                        //                    (mask >> 8 & 0xff),
+                        //                    (mask & 0xff));
+                        //    details.putString("subnet", subnet);
+                        //} catch (Exception e) {
+                        //    // Ignore errors
+                        //}
                     }
                 }
                 break;
